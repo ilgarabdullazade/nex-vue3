@@ -1,30 +1,93 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <nex-header />
+  <main class="page page_light">
+    <router-view />
+  </main>
+  <nex-footer />
+  <nex-auth-modals v-if="isAnonymous" />
 </template>
 
+<script>
+import { mapGetters, mapActions } from 'vuex';
+import { AuthJWT } from '@/helpers/authJWT';
+import { getItem } from '@/helpers/persistanceStorage';
+import NexHeader from '@/components/header/Header';
+import NexFooter from '@/components/Footer';
+import NexAuthModals from '@/components/auth/AuthModals';
+
+export default {
+  name: 'App',
+  components: {
+    NexHeader,
+    NexFooter,
+    NexAuthModals,
+  },
+  computed: {
+    ...mapGetters({
+      isAnonymous: 'auth/isAnonymous',
+    }),
+  },
+  methods: {
+    ...mapActions({
+      getCurrentUser: 'auth/getCurrentUser',
+      loginUsingToken: 'auth/loginUsingToken',
+      onResize: 'adaptive/onResize',
+    }),
+    setTheme(theme) {
+      localStorage.setItem('user-theme', theme);
+      this.userTheme = theme;
+      document.documentElement.className = theme;
+    },
+  },
+
+  mounted() {
+    this.onResize();
+    if (getItem('accessToken')) {
+      AuthJWT.isTokenExpired(getItem('accessToken'))
+        ? this.loginUsingToken()
+        : this.getCurrentUser();
+    }
+  },
+
+  created() {
+    window.addEventListener('resize', this.onResize);
+  },
+
+  beforeUnmount() {
+    window.removeEventListener('resize', this.onResize);
+  },
+};
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+@import './assets/css/style.min.css';
+
+body.blog-open::before {
+  content: '';
+  background: rgba(17, 19, 25, 0.65);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 55;
 }
 
-nav {
-  padding: 30px;
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
 }
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
+.light-mode .Vue-Toastification__toast--default {
+  background: #fff;
 }
-
-nav a.router-link-exact-active {
-  color: #42b983;
+.dark-mode .Vue-Toastification__toast--default {
+  background: #404048;
+}
+.Vue-Toastification__toast {
+  padding: 0 !important;
+}
+.light-mode .Vue-Toastification__progress-bar {
+  background-color: #404048;
 }
 </style>

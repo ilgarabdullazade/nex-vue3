@@ -1,0 +1,255 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "empty_list": "There's no {name} here... yet",
+    "articles": "articles",
+    "operations": "operations",
+    "promotions": "promotions",
+    "tags": "tags",
+    "reviews": "reviews",
+    "faqs": "faqs",
+    "copied": "Copied",
+    "code": "Code",
+    "alert": {
+      "success": "Success",
+      "change_success": "{name} changed successfully",
+      "sent_success": "{name} sent successfully",
+      "error": "Something went wrong"
+    }
+  },
+  "header": {
+    "home": "Home",
+    "blog": "Blog",
+    "bonus": "Bonuses",
+    "promotions": "Promotions",
+    "contacts": "Contacts",
+    "reviews": "Reviews",
+    "language": "Language",
+    "sign_in": "Log in",
+    "registration": "Registration"
+  },
+  "footer": {
+    "description": "We, the NEX team, are committed to improving your user experience in the world of cryptocurrencies, as well as increasing the level of understanding of cryptocurrencies and contributing to the development of the community. If you would like to share your thoughts with us, please contact us via email or social media.",
+    "contacts": "Contacts",
+    "links": {
+      "title": "Links",
+      "contacts": "Contacts",
+      "blog": "Blog",
+      "policy": "Privacy policy"
+    },
+    "blog_news": "Blog Last Updated"
+  },
+  "menu": {
+    "operations_history": "Operations history",
+    "security": "Security",
+    "analytics": "Analytics",
+    "promotions": "Stock",
+    "logout": "Log out"
+  },
+  "registration": {
+    "title": "Account Registration",
+    "have_account": "Already have an account?",
+    "login": "Login",
+    "terms": "By registering on the Nex platform and creating an electronic personal account, you agree to the terms and conditions",
+    "form": {
+      "email": "Email",
+      "your_email": "Your E-mail",
+      "confirm_password": "Confirm password",
+      "confirm_your_password": "Confirm your password"
+    }
+  },
+  "login": {
+    "title": "Login to your personal account",
+    "forget_password": "Forgot your password?",
+    "no_account": "Don't have an account yet?",
+    "registration": "Check in",
+    "form": {
+      "login": "Login",
+      "your_login": "Your login",
+      "password": "Password",
+      "your_password": "Your password"
+    },
+    "two_auth": {
+      "title": "Security check",
+      "caption": "To help protect your account, perform the following verification:"
+    }
+  },
+  "reset_password": {
+    "title": "Reset password",
+    "next": "Next",
+    "get_code": "Get the code",
+    "code_verification": "Verification code (by e-mail)",
+    "notification_text": "After making this change, withdrawals from the referral system will be disabled for 24 hours in order to protect your account."
+  },
+  "change_password": {
+    "title": "Change your password",
+    "confirm": "Confirm"
+  },
+  "account": {
+    "not_confirmed": "Account not confirmed",
+    "operations_history": {
+      "title": "Operations history",
+      "caption": "Keep track of your transactions and keep records conveniently",
+      "card": {
+        "title": "My Surgeries",
+        "counts_exchange_all_time": "Number of exchanges",
+        "counts_exchange_per_mount": "Exchanges for the last month",
+        "sum_exchange_usdt_all_time": "Exchanges made for the amount"
+      },
+      "list": {
+        "title": "Recent Operations",
+        "more": "More"
+      },
+      "item": {
+        "is_hidden": "Hidden",
+        "awaiting": "Expects",
+        "paid": "Paid"
+      }
+    },
+    "security": {
+      "title": "Security Settings",
+      "change_email": "Change E-mail",
+      "actual_email": "Actual E-mail",
+      "enter_actual_email": "Enter your actual E-mail",
+      "new_email": "Replace with new E-mail",
+      "enter_new_email": "Enter your new E-mail",
+      "change_password": "Change your password",
+      "old_password": "Old password",
+      "enter_old_password": "Enter your old password",
+      "new_password": "New password",
+      "enter_new_password": "Your new password",
+      "confirm_password": "Confirm password",
+      "enter_confirm_password": "Confirm your password",
+      "authorization_confirmation": "Confirmation when authorizing by E-mail",
+      "actual_email_incorrect": "The current email is incorrect",
+      "yes": "Yes I do",
+      "no": "No",
+      "save": "Save"
+    },
+    "analytics": {
+      "title": "Analytics",
+      "caption": "Keep track of your transactions and keep records conveniently",
+      "statistics": {
+        "title": "Referral Analytics",
+        "counts_of_referral": "Kohl's Reference",
+        "paid_from_referral": "Earned with referrals",
+        "total_sum_from_referral": "Paid with referrals",
+        "available_for_payment": "Available for payout",
+        "referral_link": "Referral link"
+      },
+      "operations": {
+        "title": "Referral operations",
+        "item": {
+          "email": "Referral Email",
+          "sum": "Sum",
+          "earned": "Earned"
+        }
+      }
+    }
+  },
+  "main": {
+    "title": "Cryptui. Cryptui from here",
+    "caption": "Purchase and sale of cryptocurrency",
+    "give": "Give",
+    "getting": "Get",
+    "min_price": "Min. sum",
+    "max_price": "Max. sum",
+    "included": "Included:",
+    "service_fee": "Service fee",
+    "blockchain_fee": "Blockchain Network Commission",
+    "exchange": "Exchange",
+    "data_confirmation": "Confirmation of data",
+    "sum": "Sum:",
+    "from_account": "From the account:",
+    "on_account": "To the account:",
+    "personal_data": "Personal Details",
+    "back": "Back",
+    "pay": "Pay for the application",
+    "form": {
+      "enter_amount": "Enter the amount",
+      "enter_card_number": "Enter your card number",
+      "crypto_wallet": "Crypto wallet address",
+      "enter_email": "Enter E-mail",
+      "agreement": "I have read and agree with {0}",
+      "policy": "service rules"
+    }
+  },
+  "blog": {
+    "title": "Blog",
+    "caption": "Who owns the information - he owns the world",
+    "search": "Search",
+    "mins": "min",
+    "more": "More"
+  },
+  "bonus": {
+    "title": "Loyalty system",
+    "caption": "Swap with friends and earn together",
+    "register": {
+      "title": "Register",
+      "caption": "Create an account on our platform and get a referral link"
+    },
+    "share": {
+      "title": "Share with your friends",
+      "caption": "Send this link to your friends to register on the Nex platform and start using all its features"
+    },
+    "income": {
+      "title": "Earn income",
+      "caption": "Get 10% from each commission paid by the users you invited"
+    },
+    "get_refferal": "Get a referral link",
+    "calculator": {
+      "title": "User Calculator",
+      "caption": "Find out how much you can earn with the help of our referral program by inviting friends",
+      "refferal_count": "Number of my referrals",
+      "monthly_average": "Average monthly volume",
+      "income": "Potential income"
+    }
+  },
+  "promotions": {
+    "title": "Participate and win",
+    "caption": "Follow the promotions and sweepstakes"
+  },
+  "contacts": {
+    "support": {
+      "title": "Customer Support"
+    },
+    "regulations": {
+      "title": "Regulations of the service",
+      "list": {
+        "item_1": "Applications are processed automatically - around the clock.",
+        "item_2": "Support service is available on weekdays - from 8:00 to 23:00",
+        "item_3": "Consultations on questions received outside working hours will be provided as quickly as possible."
+      }
+    },
+    "service": {
+      "title": "About the Service",
+      "list": {
+        "item_1": "Online exchange service nex.com - offers favorable rates for the exchange of electronic currencies and not only. We carry out exchanges of Bitcoin, Ethereum, Bitcoin Cash, USDT, TRX, Privat24, MonoBank, VISA/MasterCard and many others. However, these areas of exchange are not limited - we are constantly adding new directions based on the demand of our customers. Also, the exchange service of electronic currencies Nex - offers profitable discount systems for regular customers. For more information, please contact our Support Team. Be sure to take advantage of these opportunities for a more profitable exchange.",
+        "item_2": "The service does not store your payment data, all financial transactions are made on the side of the payment system, which meets all security requirements. In addition to this, we use a 256-bit SSL certificate, which prevents the theft of personal data when transmitted from our site to the acquirer.",
+        "item_3": "The main function of the nex.com. is the exchange, input and output of electronic currencies of various payment systems. Our task is to make it easier for users to conduct any exchange operations with electronic money, to help various Internet resources create effective tools for mutual settlements with customers, to enable representatives of traditional business to pay for their goods and services using electronic money."
+      }
+    },
+    "form": {
+      "title": "Contact me",
+      "email": "Email",
+      "your_email": "Your E-mail",
+      "telegram": "Telegram",
+      "your_telegram": "Your telegram",
+      "topic_label": "Subject of the appeal",
+      "topic": "Theme",
+      "text": "Text",
+      "send": "Send"
+    }
+  },
+  "reviews": {
+    "title": "We are on monitoring",
+    "caption": "Read reviews about us and leave your feedback",
+    "monitoring": "Reviews on monitoring",
+    "forum": "Testimonials on forums and news sites",
+    "empty": "No opinions here yet"
+  },
+  "faq": {
+    "title": "Hello! How can we help?",
+    "caption": "Find the answer in frequently asked questions or use the search"
+  }
+}

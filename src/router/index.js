@@ -1,25 +1,109 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import { createRouter, createWebHistory } from 'vue-router';
+import { Trans } from '@/plugins/Translation';
+import { getItem } from '@/helpers/persistanceStorage';
 
 const routes = [
   {
-    path: '/',
-    name: 'home',
-    component: HomeView
+    path: '/:locale',
+    component: {
+      template: '<router-view></router-view>',
+    },
+    beforeEnter: Trans.routeMiddleware,
+    children: [
+      {
+        path: '',
+        name: 'home',
+        component: () => import('../views/HomeView.vue'),
+      },
+      {
+        path: 'blog',
+        name: 'blog',
+        component: () => import('../views/BlogView.vue'),
+      },
+      {
+        path: 'blog/:slug',
+        name: 'post',
+        component: () => import('../views/PostView.vue'),
+      },
+      {
+        path: 'bonus',
+        name: 'bonus',
+        component: () => import('../views/BonusView.vue'),
+      },
+      {
+        path: 'promotion',
+        name: 'promotion',
+        component: () => import('../views/PromotionsView.vue'),
+      },
+      {
+        path: 'contacts',
+        name: 'contacts',
+        component: () => import('../views/ContactsView.vue'),
+      },
+      {
+        path: 'reviews',
+        name: 'reviews',
+        component: () => import('../views/ReviewsView.vue'),
+      },
+      {
+        path: 'personal-area',
+        name: 'personalArea',
+        beforeEnter: (to, _, next) => {
+          to.path !== '/:locale/home' && !getItem('accessToken')
+            ? next({ path: '/:locale/home' })
+            : next();
+        },
+        redirect: { name: 'operations' },
+        component: () => import('../views/PersonalAreaView.vue'),
+        children: [
+          {
+            path: 'operations',
+            name: 'operations',
+            component: () => import('../views/OperationsView.vue'),
+          },
+          {
+            path: 'security',
+            name: 'security',
+            component: () => import('../views/SecurityView.vue'),
+          },
+          {
+            path: 'analytics',
+            name: 'analytics',
+            component: () => import('../views/AnalyticsView.vue'),
+          },
+        ],
+      },
+      {
+        path: 'faq',
+        name: 'faq',
+        component: () => import('../views/FaqView.vue'),
+      },
+      {
+        path: 'aml-policy',
+        name: 'aml',
+        component: () => import('../views/AmlView.vue'),
+      },
+      {
+        path: 'privacy-policy',
+        name: 'policy',
+        component: () => import('../views/PolicyView.vue'),
+      },
+    ],
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  }
-]
+    path: '/:catchAll(.*)',
+    redirect() {
+      return Trans.defaultLocale;
+    },
+  },
+];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
-})
+  scrollBehavior() {
+    return { top: 0 };
+  },
+  routes,
+});
 
-export default router
+export default router;
