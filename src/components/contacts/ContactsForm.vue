@@ -103,7 +103,7 @@ export default {
     }),
     async postForm(data) {
       try {
-        return await axios.post('/important_info/get-in-touch/', data);
+        return await axios.post('/api/important_info/get-in-touch/', data);
       } catch (e) {
         this.error = e;
         this.showError('Error');

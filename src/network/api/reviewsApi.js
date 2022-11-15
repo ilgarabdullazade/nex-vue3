@@ -1,11 +1,11 @@
 import axios from '@/network/axios';
 
 const getReviewMonitoringList = () => {
-  return axios.get('/important_info/feedback-monitoring/');
+  return axios.get('/api/important_info/feedback-monitoring/');
 };
 
 const getReviewForumList = () => {
-  return axios.get('/important_info/feedback-sites/');
+  return axios.get('/api/important_info/feedback-sites/');
 };
 
 export default {

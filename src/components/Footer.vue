@@ -168,7 +168,7 @@ export default {
   methods: {
     async fetchPosts() {
       try {
-        return await axios.get('/blog/posts_by_tags/', {
+        return await axios.get('/api/blog/posts_by_tags/', {
           params: {
             limit: 2,
           },
