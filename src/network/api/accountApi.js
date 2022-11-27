@@ -31,7 +31,11 @@ const getUserTransaction = (id) => {
 };
 
 const sendVerificationCode = () => {
-  return axios.post(`/account/send-verify-link/`);
+  return axios.post('/api/account/send-verify-link/');
+};
+
+const activateAccount = (code) => {
+  return axios.post('/api/account/account-activate/', { code });
 };
 
 export default {
@@ -43,4 +47,5 @@ export default {
   getUserTransactions,
   getUserTransaction,
   sendVerificationCode,
+  activateAccount,
 };

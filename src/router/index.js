@@ -86,6 +86,11 @@ const routes = [
         name: 'policy',
         component: () => import('../views/PolicyView.vue'),
       },
+      {
+        path: 'account-activate',
+        name: 'accountActivate',
+        component: () => import('../views/AccountActivateView.vue'),
+      },
     ],
   },
   {

@@ -10,11 +10,13 @@
     "faqs": "faqs",
     "copied": "Скопировано",
     "code": "Код",
+    "account_activation": "Активация аккаунта",
     "alert": {
       "success": "Успешно",
       "change_success": "{name} успешно изменен",
       "send_success": "{name} успешно отправлен",
-      "error": "Что-то пошло не так"
+      "error": "Что-то пошло не так",
+      "account_activated": "Аккаунт успешно подтвержден"
     }
   },
   "header": {

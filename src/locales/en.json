@@ -10,11 +10,13 @@
     "faqs": "faqs",
     "copied": "Copied",
     "code": "Code",
+    "account_activation": "Account activation",
     "alert": {
       "success": "Success",
       "change_success": "{name} changed successfully",
       "send_success": "{name} sent successfully",
-      "error": "Something went wrong"
+      "error": "Something went wrong",
+      "account_activated": "Account successfully verified"
     }
   },
   "header": {

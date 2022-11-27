@@ -29,6 +29,16 @@ export const accountVerificationStore = {
         commit('setLoading', false);
       }
     },
+    async activateAccount({ commit }, code) {
+      try {
+        commit('setLoading', true);
+        return await accountApi.activateAccount(code);
+      } catch (e) {
+        commit('setError', e.message);
+      } finally {
+        commit('setLoading', false);
+      }
+    },
   },
   namespaced: true,
 };

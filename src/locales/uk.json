@@ -10,11 +10,13 @@
     "faqs": "faqs",
     "copied": "Скопійовано",
     "code": "Код",
+    "account_activation": "Активація акаунта",
     "alert": {
       "success": "Успішно",
       "change_success": "{name} успішно змінено",
       "send_success": "{name} успішно відправлено",
-      "error": "Щось пішло не так"
+      "error": "Щось пішло не так",
+      "account_activated": "Акаунт успішно підтверджено"
     }
   },
   "header": {

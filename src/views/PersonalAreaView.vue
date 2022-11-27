@@ -8,7 +8,7 @@
         <span class="alert-text">
           {{ $t('account.not_confirmed') }}
         </span>
-        <button @click="sendVerificationCode" type="button" class="alert-link">
+        <button @click="sendCode" type="button" class="alert-link">
           {{ $t('account.get_link') }}
         </button>
       </div>
@@ -80,7 +80,20 @@ export default {
     ...mapActions({
       logout: 'auth/logout',
       sendVerificationCode: 'account/accountVerification/sendVerificationCode',
+      showDanger: 'notifications/showDanger',
+      showSuccess: 'notifications/showSuccess',
     }),
+    sendCode() {
+      this.sendVerificationCode().then((res) => {
+        res
+          ? this.showSuccess(
+              this.$t('common.alert.send_success', {
+                name: this.$t('common.code'),
+              })
+            )
+          : this.showDanger(this.$t('common.alert.error'));
+      });
+    },
     onLogout() {
       this.$router.push({ name: 'home' }).then(() => this.logout());
     },
