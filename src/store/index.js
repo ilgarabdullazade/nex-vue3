@@ -9,6 +9,7 @@ import { promotionStore } from '@/store/modules/promotionStore';
 import { reviewsStore } from '@/store/modules/reviews/reviewsStore';
 import { adaptiveStore } from '@/store/modules/adaptiveStore';
 import { faqStore } from '@/store/modules/faqStore';
+import { whiteBitStore } from '@/store/modules/whiteBitStore';
 
 export default createStore({
   state: {},
@@ -26,5 +27,6 @@ export default createStore({
     reviews: reviewsStore,
     adaptive: adaptiveStore,
     faq: faqStore,
+    whiteBit: whiteBitStore,
   },
 });

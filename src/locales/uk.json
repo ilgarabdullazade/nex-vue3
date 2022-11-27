@@ -13,7 +13,7 @@
     "alert": {
       "success": "Успішно",
       "change_success": "{name} успішно змінено",
-      "sended_success": "{name} успішно відправлено",
+      "send_success": "{name} успішно відправлено",
       "error": "Щось пішло не так"
     }
   },
@@ -87,6 +87,7 @@
   },
   "account": {
     "not_confirmed": "Акаунт не підтверджений",
+    "get_link": "Отримати посилання",
     "operations_history": {
       "title": "Історія операцій",
       "caption": "Стежте за своїми операціями і ведіть облік зручно",

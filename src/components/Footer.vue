@@ -116,7 +116,12 @@
                 <router-link
                   v-for="post in posts"
                   :key="post.slug"
-                  :to="$i18nRoute({ name: 'blog' })"
+                  :to="
+                    $i18nRoute({
+                      name: 'post',
+                      params: { slug: post.slug },
+                    })
+                  "
                   class="lastest-blog__columns">
                   <div class="lastest-blog__item">
                     <div class="lastest-blog__image">

@@ -5,9 +5,7 @@ import { getItem } from '@/helpers/persistanceStorage';
 const routes = [
   {
     path: '/:locale',
-    component: {
-      template: '<router-view></router-view>',
-    },
+    component: () => import('../views/MainShellView.vue'),
     beforeEnter: Trans.routeMiddleware,
     children: [
       {
@@ -48,13 +46,13 @@ const routes = [
       {
         path: 'personal-area',
         name: 'personalArea',
+        component: () => import('../views/PersonalAreaView.vue'),
         beforeEnter: (to, _, next) => {
           to.path !== '/:locale/home' && !getItem('accessToken')
             ? next({ path: '/:locale/home' })
             : next();
         },
         redirect: { name: 'operations' },
-        component: () => import('../views/PersonalAreaView.vue'),
         children: [
           {
             path: 'operations',
@@ -89,6 +87,11 @@ const routes = [
         component: () => import('../views/PolicyView.vue'),
       },
     ],
+  },
+  {
+    path: '/whiteBIT-verification',
+    name: 'whiteBit',
+    component: () => import('../views/WhiteBitView.vue'),
   },
   {
     path: '/:catchAll(.*)',

@@ -30,6 +30,10 @@ const getUserTransaction = (id) => {
   return axios.get(`/api/account/user-transactions/${id}/`);
 };
 
+const sendVerificationCode = () => {
+  return axios.post(`/account/send-verify-link/`);
+};
+
 export default {
   changeEmail,
   changePassword,
@@ -38,4 +42,5 @@ export default {
   getReferralOperations,
   getUserTransactions,
   getUserTransaction,
+  sendVerificationCode,
 };

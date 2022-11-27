@@ -13,7 +13,7 @@
     "alert": {
       "success": "Success",
       "change_success": "{name} changed successfully",
-      "sent_success": "{name} sent successfully",
+      "send_success": "{name} sent successfully",
       "error": "Something went wrong"
     }
   },
@@ -87,6 +87,7 @@
   },
   "account": {
     "not_confirmed": "Account not confirmed",
+    "get_link": "Get the link",
     "operations_history": {
       "title": "Operations history",
       "caption": "Keep track of your transactions and keep records conveniently",

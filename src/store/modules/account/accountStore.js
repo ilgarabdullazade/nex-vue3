@@ -4,6 +4,7 @@ import { accountChangeTwoFactorAuthStore } from './accountChangeTwoFactorAuthSto
 import { accountReferralOperationsStore } from './accountReferralOperationsStore';
 import { accountReferralStatisticsStore } from './accountReferralStatisticsStore';
 import { accountTransactionsStore } from './accountTransactionsStore';
+import { accountVerificationStore } from './accountVerificationStore';
 
 export const accountStore = {
   state: {},
@@ -17,6 +18,7 @@ export const accountStore = {
     accountReferralOperations: accountReferralOperationsStore,
     accountReferralStatistics: accountReferralStatisticsStore,
     accountTransactions: accountTransactionsStore,
+    accountVerification: accountVerificationStore,
   },
   namespaced: true,
 };

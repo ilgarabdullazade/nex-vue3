@@ -22,9 +22,10 @@ axios.interceptors.response.use(
       response &&
       response.status === 401 &&
       !prevRequestConfig.sent &&
-      getItem('accessToken')
+      AuthJWT.isTokenExpired(getItem('accessToken'))
     ) {
       prevRequestConfig.sent = true;
+
       const res = await store.dispatch('auth/loginUsingToken');
 
       prevRequestConfig.headers = { ...prevRequestConfig.headers };

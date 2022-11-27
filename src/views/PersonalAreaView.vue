@@ -8,11 +8,8 @@
         <span class="alert-text">
           {{ $t('account.not_confirmed') }}
         </span>
-        <button
-          @click="onSubmitLogin(credentials)"
-          type="button"
-          class="alert-link">
-          Получить ссылку
+        <button @click="sendVerificationCode" type="button" class="alert-link">
+          {{ $t('account.get_link') }}
         </button>
       </div>
       <nav class="submenu">
@@ -82,6 +79,7 @@ export default {
   methods: {
     ...mapActions({
       logout: 'auth/logout',
+      sendVerificationCode: 'account/accountVerification/sendVerificationCode',
     }),
     onLogout() {
       this.$router.push({ name: 'home' }).then(() => this.logout());
