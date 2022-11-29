@@ -1,6 +1,6 @@
 <template>
   <div class="data-confirmation__item item-data-confirmation">
-    <div class="item-data-confirmation__top">
+    <div v-if="showData" class="item-data-confirmation__top">
       <span class="transfer">{{
         isGive ? $t('main.give') : $t('main.getting')
       }}</span>
@@ -33,6 +33,10 @@
 export default {
   name: 'NexExchangeConfirmationItem',
   props: {
+    showData: {
+      type: Boolean,
+      default: true,
+    },
     isGive: {
       type: Boolean,
       required: true,
@@ -64,5 +68,9 @@ export default {
   width: 100%;
   height: 100%;
   object-fit: contain;
+}
+
+.item-data-confirmation__detail {
+  word-break: break-all;
 }
 </style>

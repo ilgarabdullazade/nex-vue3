@@ -168,6 +168,12 @@
     "personal_data": "Personal Details",
     "back": "Back",
     "pay": "Pay for the application",
+    "application_details": "Application details",
+    "submit_transfer": "Submit transfer",
+    "created": "Created by:",
+    "support_text": "Soon, we will check for a transfer from you, if for some reason you are unable to transfer funds, {0}",
+    "write_us": "write to us",
+    "to_main": "To main",
     "form": {
       "enter_amount": "Enter the amount",
       "enter_card_number": "Enter your card number",

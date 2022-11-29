@@ -11,15 +11,19 @@
         <li class="stepper__item" :class="{ stepper__item_active: step === 3 }">
           <span class="stepper__step">3</span>
         </li>
-        <li class="stepper__item" :class="{ stepper__item_active: step === 4 }">
-          <span class="stepper__step">4</span>
-        </li>
       </ul>
     </div>
     <h1 class="data-confirmation__title title">
-      {{ $t('main.data_confirmation') }}
+      {{
+        step === 2
+          ? $t('main.data_confirmation')
+          : $t('main.application_details')
+      }}
     </h1>
-    <div class="data-confirmation__body" :class="{ disabled: isLoading }">
+    <div
+      v-if="step === 2"
+      class="data-confirmation__body"
+      :class="{ disabled: isLoading }">
       <nex-exchanger-confirmation-item
         :is-give="true"
         :currency="activePair.currency_left"
@@ -89,13 +93,52 @@
         </div>
       </Form>
     </div>
+    <template v-if="step === 3">
+      <div class="request-details__request request">
+        <div class="request__header">
+          <h5 class="request__caption caption">
+            {{ $t('main.submit_transfer') }}
+          </h5>
+        </div>
+        <p class="request__create-date">
+          {{ $t('main.created') }}
+          {{ formatDate(responseForCrypto.created_at) }}
+        </p>
+      </div>
+      <nex-exchanger-confirmation-item
+        class="request-details__request"
+        :show-data="false"
+        :is-give="false"
+        :currency="responseForCrypto.currency_exchange"
+        :amount="formData.amount_exchange"
+        :account="responseForCrypto.deposit_address" />
+      <div class="request-details__request request">
+        <i18n-t
+          scope="global"
+          keypath="main.support_text"
+          tag="p"
+          class="request__create">
+          <a href="mailto:support@nex.com" class="link">{{
+            $t('main.write_us')
+          }}</a>
+        </i18n-t>
+      </div>
+      <div class="form-data-confirmation__buttons">
+        <button
+          @click="changeStep(1)"
+          type="button"
+          class="form-data-confirmation__second-button button button_none">
+          {{ $t('main.to_main') }}
+        </button>
+      </div>
+    </template>
   </div>
 </template>
 
 <script>
 import { mapState, mapGetters, mapActions } from 'vuex';
 import { Form, Field, ErrorMessage } from 'vee-validate';
-
+import moment from 'moment';
 import NexExchangerConfirmationItem from '@/components/home/ExchangerConfirmationItem';
 
 export default {
@@ -117,6 +160,48 @@ export default {
           }
           return;
         },
+      },
+      responseForCrypto: {
+        message: 'transaction create',
+        amount_exchange: '0.006826000000000000000000000000',
+        currency_exchange: {
+          id: 2,
+          name: 'ETH',
+          network: 'ERC20',
+          provider: null,
+          name_from_white_bit: 'ETH',
+          image_icon: '/media/currency_images/2022/11/09/faq5.png',
+          fiat: false,
+          min_withdraw: '0.010000000000000000000000000000',
+          max_withdraw: '1000000.000000000000000000000000000000',
+          min_deposit: '0.006500000000000000000000000000',
+          max_deposit: '1000000.000000000000000000000000000000',
+          network_for_min_max: 'ERC20',
+          commission_deposit: '0.000000000000000',
+          commission_withdraw: '0.001071600000000',
+        },
+        amount_received: '329.969800000000000000000000000000',
+        currency_received: {
+          id: 1,
+          name: 'UAH (MONO / Privat / VISA /Mastercard)',
+          network: null,
+          provider: 'VISAMASTER',
+          name_from_white_bit: 'UAH',
+          image_icon: '/media/currency_images/2022/11/09/555.jpeg',
+          fiat: true,
+          min_withdraw: '50.000000000000000000000000000000',
+          max_withdraw: '100000.000000000000000000000000000000',
+          min_deposit: '50.000000000000000000000000000000',
+          max_deposit: '29500.000000000000000000000000000000',
+          network_for_min_max: 'VISAMASTER',
+          commission_deposit: '0.000000000000000',
+          commission_withdraw: '0.000000000000000',
+        },
+        created_at: '2022-11-29T11:24:50.912047Z',
+        user: 'd072d707-8949-494a-a173-6ec1b0b4a578',
+        deposit_address: '0xe135B8206004d8128bB00d20Bd8aE0a798E621C9',
+        unique_id: '44d64a27-3099-458b-9ebb-5b563f837e8d',
+        email: 'ilqar_99_99@inbox.ru',
       },
     };
   },
@@ -147,6 +232,9 @@ export default {
     changeStep(step) {
       this.$emit('setStep', step);
     },
+    formatDate(value) {
+      return moment(value).format('kk:mm:ss - DD.MM.YYYY');
+    },
     onSubmit(values) {
       const formData = {
         pairs_id: this.activePair.id,
@@ -161,7 +249,7 @@ export default {
           )
         : this.transactionCryptoToFiat(formData).then((res) => {
             this.changeStep(3);
-            console.log(res);
+            this.responseForCrypto = res.data;
           });
     },
   },
@@ -182,5 +270,13 @@ export default {
 .form-data-cofirmation__checkbox.error {
   outline: auto;
   outline-color: red;
+}
+
+.stepper {
+  max-width: 170px;
+}
+
+.link {
+  color: #edbb40;
 }
 </style>
