@@ -115,4 +115,8 @@ export default {
 .vue-slider-dot-handle-focus {
   box-shadow: none !important;
 }
+
+.range-bonus {
+  padding: 28px !important;
+}
 </style>
