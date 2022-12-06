@@ -88,7 +88,10 @@
         </div>
         <!--  -->
         <div class="bonus__button">
-          <button type="button" class="button button_long-text">
+          <button
+            @click="copyReferralUrl"
+            type="button"
+            class="button button_long-text">
             {{ $t('bonus.get_refferal') }}
           </button>
         </div>
@@ -100,6 +103,9 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex';
+import { copyURL } from '@/helpers/utils';
+import { $vfm } from 'vue-final-modal';
 import NexBonusCalculator from '@/components/bonus/BonusCalculator';
 import NexPartners from '@/components/Partners';
 
@@ -108,6 +114,25 @@ export default {
   components: {
     NexBonusCalculator,
     NexPartners,
+  },
+  computed: {
+    ...mapGetters({
+      currentUser: 'auth/currentUser',
+    }),
+  },
+  methods: {
+    ...mapActions({
+      showInfo: 'notifications/showInfo',
+    }),
+    copyReferralUrl() {
+      if (this.currentUser) {
+        copyURL(this.currentUser.referral_url).then(() =>
+          this.showInfo(this.$t('common.copied'))
+        );
+      } else {
+        $vfm.show('login-modal');
+      }
+    },
   },
 };
 </script>

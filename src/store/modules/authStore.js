@@ -50,7 +50,7 @@ export const authStore = {
         commit('setLoading', false);
       }
     },
-    async login({ commit }, credentials) {
+    async login({ commit, dispatch }, credentials) {
       try {
         commit('setLoading', true);
         const response = await authApi.login(credentials);
@@ -58,11 +58,7 @@ export const authStore = {
           response.data.user &&
           response.data.detail !== 'Code send to email'
         ) {
-          commit('setUser', response.data.user);
-          commit('setValidationErrors', null);
-          commit('setIsLoggedIn', true);
-          setItem('accessToken', response.data.access);
-          setItem('refreshToken', response.data.refresh);
+          dispatch('actionsAfterLogin', response);
         }
         return response;
       } catch (res) {
@@ -71,18 +67,15 @@ export const authStore = {
         commit('setLoading', false);
       }
     },
-    async loginUsingToken({ commit }) {
+    async loginUsingToken({ commit, dispatch }) {
       try {
         commit('setLoading', true);
         const response = await authApi.loginUsingToken(getItem('refreshToken'));
-        commit('setUser', response.data.user);
-        commit('setValidationErrors', null);
-        commit('setIsLoggedIn', true);
-        setItem('accessToken', response.data.access);
-        setItem('refreshToken', response.data.refresh);
+        dispatch('actionsAfterLogin', response);
         return response;
       } catch (res) {
-        commit('setValidationErrors', res);
+        console.log(res);
+        dispatch('logout');
       } finally {
         commit('setLoading', false);
       }
@@ -121,21 +114,24 @@ export const authStore = {
         commit('setLoading', false);
       }
     },
-    async loginWithTwoAuthCode({ commit }, credentials) {
+    async loginWithTwoAuthCode({ commit, dispatch }, credentials) {
       try {
         commit('setLoading', true);
         const response = await authApi.loginWithTwoAuthCode(credentials);
-        commit('setUser', response.data.user);
-        commit('setValidationErrors', null);
-        commit('setIsLoggedIn', true);
-        setItem('accessToken', response.data.access);
-        setItem('refreshToken', response.data.refresh);
+        dispatch('actionsAfterLogin');
         return response;
       } catch (res) {
         commit('setValidationErrors', res);
       } finally {
         commit('setLoading', false);
       }
+    },
+    actionsAfterLogin({ commit }, response) {
+      commit('setUser', response.data.user);
+      commit('setValidationErrors', null);
+      commit('setIsLoggedIn', true);
+      setItem('accessToken', response.data.access);
+      setItem('refreshToken', response.data.refresh);
     },
     logout({ commit }) {
       removeItem('accessToken');

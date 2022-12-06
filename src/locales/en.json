@@ -216,7 +216,11 @@
   },
   "promotions": {
     "title": "Participate and win",
-    "caption": "Follow the promotions and sweepstakes"
+    "caption": "Follow the promotions and sweepstakes",
+    "item": {
+      "more": "More details",
+      "hide": "Hide"
+    }
   },
   "contacts": {
     "support": {

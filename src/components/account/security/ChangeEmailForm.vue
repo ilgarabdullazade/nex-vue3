@@ -15,6 +15,8 @@
       <Field
         type="text"
         name="old_email"
+        :value="currentUser.email"
+        :disabled="true"
         class="form-security__input input"
         id="form-security__input-mail"
         :placeholder="$t('account.security.enter_actual_email')" />

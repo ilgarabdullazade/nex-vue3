@@ -215,6 +215,15 @@ export default {
         .then(() => this.logout().then(() => (this.menuIsOpen = false)));
     },
   },
+  watch: {
+    $route(to, from) {
+      console.log('route change to', to);
+      console.log('route change from', from);
+      if (this.menuIsOpen) {
+        this.toggleMenu();
+      }
+    },
+  },
 };
 </script>
 

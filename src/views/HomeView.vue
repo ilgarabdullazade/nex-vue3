@@ -35,3 +35,12 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+@media (max-width: 78.125em) {
+  .content__icon {
+    top: auto;
+    z-index: 9;
+  }
+}
+</style>

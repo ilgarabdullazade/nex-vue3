@@ -16,7 +16,11 @@
             <div class="promotion__header">{{ promotion.title }}</div>
             <p v-if="showText" class="promotion__text">{{ promotion.text }}</p>
             <button @click="toggleText" type="button" class="promotion__link">
-              {{ showText ? 'Скрыть' : 'Детальнее' }}
+              {{
+                showText
+                  ? $t('promotions.item.hide')
+                  : $t('promotions.item.more')
+              }}
             </button>
           </div>
         </div>

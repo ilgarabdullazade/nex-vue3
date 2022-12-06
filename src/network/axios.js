@@ -22,7 +22,8 @@ axios.interceptors.response.use(
       response &&
       response.status === 401 &&
       !prevRequestConfig.sent &&
-      AuthJWT.isTokenExpired(getItem('accessToken'))
+      AuthJWT.isTokenExpired(getItem('accessToken')) &&
+      !AuthJWT.isTokenExpired(getItem('refreshToken'))
     ) {
       prevRequestConfig.sent = true;
 

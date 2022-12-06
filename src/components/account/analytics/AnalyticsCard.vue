@@ -82,7 +82,7 @@ export default {
     },
     copyReferralUrl() {
       copyURL(this.statistics.referral_url).then(() =>
-        this.showInfo(this.$t('account.analytics.statistics.copied'))
+        this.showInfo(this.$t('common.copied'))
       );
     },
   },

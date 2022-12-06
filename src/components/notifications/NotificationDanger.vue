@@ -22,8 +22,5 @@ export default {
       required: true,
     },
   },
-  mounted() {
-    console.log(this.text);
-  },
 };
 </script>

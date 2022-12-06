@@ -9,7 +9,10 @@
     <div
       v-if="pairs && leftCurrencyList && rightCurrencyList && activePair"
       class="exchange__content">
-      <Form @submit="onSubmit" :validation-schema="validationSchema">
+      <Form
+        @submit="onSubmit"
+        :validation-schema="validationSchema"
+        ref="exhangeForm">
         <div class="exchange__form-exchange form-exchange">
           <div class="form-exchange__header header-form-exchange">
             <span class="header-form-exchange__rate"
@@ -45,14 +48,18 @@
               <div class="give-form-exchange__amount amount">
                 <span class="amount__min"
                   >{{ $t('main.min_price') }}
-                  <span>{{
-                    roundUpValue(activePair.min_value * 1.05, 6)
-                  }}</span>
+                  <span
+                    @click="setMaxOrMinValue(activePair.min_value * 1.05)"
+                    >{{ roundUpValue(activePair.min_value * 1.05, 6) }}</span
+                  >
                   {{ activePair.currency_left.name_from_white_bit }}</span
                 >
                 <span class="amount__max"
                   >{{ $t('main.max_price') }}
-                  <span>{{ roundUpValue(activePair.max_value, 6) }}</span>
+                  <span
+                    @click="setMaxOrMinValue(activePair.max_value * 0.95)"
+                    >{{ roundUpValue(activePair.max_value * 0.95, 6) }}</span
+                  >
                   {{ activePair.currency_left.name_from_white_bit }}</span
                 >
               </div>
@@ -66,15 +73,6 @@
                 v-maska="'#### #### #### ####'" />
 
               <ErrorMessage name="credit_card" class="error-alert" />
-            </template>
-            <template v-else>
-              <Field
-                name="crypto_wallet"
-                type="text"
-                :placeholder="$t('main.form.crypto_wallet')"
-                class="input" />
-
-              <ErrorMessage name="crypto_wallet" class="error-alert" />
             </template>
           </div>
 
@@ -254,6 +252,11 @@ export default {
       return roundUp(value, fixed);
     },
 
+    setMaxOrMinValue(value) {
+      this.amountLeft = Number(value);
+      this.calculateCurrency(Number(value));
+    },
+
     calculateCurrency(value) {
       if (
         value >= this.activePair.min_value * 1.05 &&
@@ -333,5 +336,10 @@ export default {
 }
 .form-exchange__button[disabled] {
   opacity: 0.5;
+}
+
+.amount__max span,
+.amount__min span {
+  cursor: pointer;
 }
 </style>
