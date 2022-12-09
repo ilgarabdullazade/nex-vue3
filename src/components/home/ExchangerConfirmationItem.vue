@@ -20,7 +20,7 @@
         >{{ amount }} {{ currency.name_from_white_bit }}</span
       >
     </div>
-    <div class="item-data-confirmation__column">
+    <div v-if="account" class="item-data-confirmation__column">
       <h5 class="item-data-confirmation__caption caption">
         {{ isGive ? $t('main.from_account') : $t('main.on_account') }}
       </h5>
@@ -50,7 +50,6 @@ export default {
       required: true,
     },
     account: {
-      type: String,
       required: true,
     },
   },

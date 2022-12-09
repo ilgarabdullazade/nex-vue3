@@ -209,7 +209,9 @@ export default {
           6
         )}|max_value:${roundUp(this.activePair.max_value * 0.95, 6)}`,
         credit_card: 'required|credit_card',
-        crypto_wallet: 'required|min:16',
+        crypto_wallet: this.activePair.currency_left.fiat
+          ? 'required|min:16'
+          : null,
       };
     },
   },
