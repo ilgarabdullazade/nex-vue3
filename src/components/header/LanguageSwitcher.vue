@@ -26,7 +26,7 @@
             class="select__option"
             :class="{ active: $i18n.locale === locale }"
             type="button">
-            {{ locale }}
+            {{ locale === 'uk' ? 'UA' : locale }}
           </button>
         </div>
       </div>

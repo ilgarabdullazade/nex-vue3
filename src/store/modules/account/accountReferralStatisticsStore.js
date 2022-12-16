@@ -25,6 +25,7 @@ export const accountReferralStatisticsStore = {
         commit('setLoading', true);
         const response = await accountApi.getReferralStatistics();
         commit('setData', response.data);
+        commit('setError', null);
         return response;
       } catch (e) {
         commit('setError', e.message);

@@ -25,6 +25,7 @@ export const faqStore = {
         commit('setLoading', true);
         const response = await faqApi.getFaqList();
         commit('setData', response.data);
+        commit('setError', null);
         return response;
       } catch (e) {
         commit('setError', e.message);

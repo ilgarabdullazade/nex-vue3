@@ -27,6 +27,7 @@ export const exchangerTransactionsStore = {
         commit('setLoading', true);
         const response = await excahangerApi.transactionCryptoToFiat(data);
         commit('setData', response.data);
+        commit('setError', null);
         return response;
       } catch (e) {
         commit('setError', e.message);
@@ -39,6 +40,7 @@ export const exchangerTransactionsStore = {
         commit('setLoading', true);
         const response = await excahangerApi.transactionFiatToCrypto(data);
         commit('setData', response.data);
+        commit('setError', null);
         return response;
       } catch (e) {
         commit('setError', e.message);

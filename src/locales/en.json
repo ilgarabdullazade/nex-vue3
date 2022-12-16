@@ -16,7 +16,12 @@
       "change_success": "{name} changed successfully",
       "send_success": "{name} sent successfully",
       "error": "Something went wrong",
-      "account_activated": "Account successfully verified"
+      "account_activated": "Account successfully verified",
+      "login_error_incorrect_data": "Incorrect username or password",
+      "reg_login_exist_error": "User with this login already exists",
+      "reg_email_exist_error": "User with this 'Email' already exists",
+      "not_valid_code": "Invalid code",
+      "not_user": "User with 'Email' not found"
     }
   },
   "header": {

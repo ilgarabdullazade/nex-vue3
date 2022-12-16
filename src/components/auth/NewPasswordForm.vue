@@ -165,7 +165,7 @@ export default {
           $vfm.hideAll();
         } else {
           this.resetForm();
-          this.showDanger(this.validationErrors.message);
+          this.showDanger(this.$t('common.alert.error'));
         }
       });
     },

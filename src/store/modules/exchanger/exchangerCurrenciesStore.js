@@ -39,6 +39,7 @@ export const exchangerCurrenciesStore = {
           'setCryptoCurrencies',
           response.data.filter((currency) => !currency.fiat)
         );
+        commit('setError', null);
         return response;
       } catch (e) {
         commit('setError', e.message);

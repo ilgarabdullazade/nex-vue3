@@ -25,6 +25,7 @@ export const accountChangePasswordStore = {
         commit('setLoading', true);
         const response = await accountApi.changePassword(params);
         commit('setData', response.data);
+        commit('setError', null);
         return response;
       } catch (e) {
         commit('setError', e.message);

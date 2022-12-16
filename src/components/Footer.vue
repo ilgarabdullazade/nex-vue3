@@ -8,16 +8,12 @@
               :to="$i18nRoute({ name: 'home' })"
               class="footer__logo logo">
               <img
-                class="logo__main logo__main_big"
-                src="@/assets/img/header/logo.svg"
-                alt="logo" />
-              <img
                 class="logo__text logo__text_big"
-                src="@/assets/img/header/icons/NEX.svg"
+                src="@/assets/img/nex_logo_light.svg"
                 alt="logo" />
               <img
                 class="logo__light logo__text_big"
-                src="@/assets/img/logo_light.svg"
+                src="@/assets/img/nex_logo_dark.svg"
                 alt="logo" />
             </router-link>
             <p class="description">
@@ -193,4 +189,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.logo__text_big {
+  width: auto !important;
+}
+</style>

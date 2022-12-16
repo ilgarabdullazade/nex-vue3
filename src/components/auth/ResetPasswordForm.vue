@@ -212,7 +212,11 @@ export default {
             })
           );
         } else {
-          this.showDanger(this.validationErrors.response.data.detail);
+          this.showDanger(
+            this.$t(
+              `common.alert.${this.validationErrors.response.data.detail}`
+            )
+          );
         }
       });
     },

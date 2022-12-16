@@ -2,12 +2,14 @@
   <header class="header">
     <div class="header__container">
       <router-link :to="$i18nRoute({ name: 'home' })" class="logo">
-        <img class="logo__main" src="@/assets/img/header/logo.svg" alt="logo" />
         <img
           class="logo__text"
-          src="@/assets/img/header/icons/NEX.svg"
+          src="@/assets/img/nex_logo_light.svg"
           alt="logo" />
-        <img class="logo__light" src="@/assets/img/logo_light.svg" alt="logo" />
+        <img
+          class="logo__light"
+          src="@/assets/img/nex_logo_dark.svg"
+          alt="logo" />
       </router-link>
       <div class="header__menu menu">
         <nav class="menu__body">
@@ -216,9 +218,7 @@ export default {
     },
   },
   watch: {
-    $route(to, from) {
-      console.log('route change to', to);
-      console.log('route change from', from);
+    $route() {
       if (this.menuIsOpen) {
         this.toggleMenu();
       }
@@ -233,5 +233,10 @@ export default {
 }
 .user-picture img {
   display: block;
+}
+
+.logo__text,
+.logo__light {
+  height: 20px;
 }
 </style>

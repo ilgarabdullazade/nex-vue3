@@ -25,6 +25,7 @@ export const blogTagsStore = {
         commit('setLoading', true);
         const response = await blogApi.getTags();
         commit('setData', response.data);
+        commit('setError', null);
         return response;
       } catch (e) {
         commit('setError', e.message);

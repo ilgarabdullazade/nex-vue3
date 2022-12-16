@@ -25,6 +25,7 @@ export const accountChangeTwoFactorAuthStore = {
         commit('setLoading', true);
         const response = await accountApi.changeTwoFactorAuth(params);
         commit('setData', response.data);
+        commit('setError', null);
         return response;
       } catch (e) {
         commit('setError', e.message);

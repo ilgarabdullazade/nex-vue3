@@ -25,6 +25,7 @@ export const blogPostStore = {
         commit('setLoading', true);
         const response = await blogApi.getPost(slug);
         commit('setData', response.data);
+        commit('setError', null);
         return response;
       } catch (e) {
         commit('setError', e.message);

@@ -35,6 +35,7 @@ export const blogPostListStore = {
           page,
         });
         commit('setData', response.data);
+        commit('setError', null);
         return response;
       } catch (e) {
         commit('setError', e.message);

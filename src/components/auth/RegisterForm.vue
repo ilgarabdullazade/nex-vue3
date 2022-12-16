@@ -128,7 +128,10 @@
         </div>
       </div>
 
-      <button type="submit" class="form-popup__button button">
+      <button
+        :disabled="isLoading"
+        type="submit"
+        class="form-popup__button button">
         {{ $t('header.registration') }}
       </button>
     </Form>
@@ -211,7 +214,20 @@ export default {
           this.showSuccess(this.$t('common.alert.success'));
         } else {
           this.resetForm();
-          this.showDanger(this.$t('common.alert.error'));
+          if (this.validationErrors.response.data.email) {
+            this.showDanger(
+              this.$t(
+                `common.alert.${this.validationErrors.response.data.email[0]}`
+              )
+            );
+          }
+          if (this.validationErrors.response.data.username) {
+            this.showDanger(
+              this.$t(
+                `common.alert.${this.validationErrors.response.data.username[0]}`
+              )
+            );
+          }
         }
       });
     },

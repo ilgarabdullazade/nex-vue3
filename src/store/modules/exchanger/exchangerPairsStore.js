@@ -65,6 +65,7 @@ export const exchangerPairsStore = {
         commit('setLoading', true);
         const response = await excahangerApi.getPairs();
         commit('setData', response.data);
+        commit('setError', null);
         if (response.data.length) {
           commit('setActivePair', response.data[0]);
           commit('setCurrencyLeft', response.data[0].currency_left);
@@ -83,6 +84,7 @@ export const exchangerPairsStore = {
         commit('setPairLoading', true);
         const response = await excahangerApi.getPair(id);
         commit('setActivePair', response.data);
+        commit('setError', null);
         return response;
       } catch (e) {
         console.log(e);
@@ -94,6 +96,7 @@ export const exchangerPairsStore = {
     async preCalculate({ commit }, params) {
       try {
         commit('setPairLoading', true);
+        commit('setError', null);
         return await excahangerApi.preCalculate(params);
       } catch (e) {
         console.log(e);

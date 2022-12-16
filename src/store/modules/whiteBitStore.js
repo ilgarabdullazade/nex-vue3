@@ -24,6 +24,7 @@ export const whiteBitStore = {
         commit('setLoading', true);
         const response = await whiteBitApi.whiteBitVerification();
         commit('setData', response.data);
+        commit('setError', null);
         return response;
       } catch (e) {
         commit('setError', e.message);

@@ -75,7 +75,10 @@
           </button>
         </div>
 
-        <button type="submit" class="form-popup__button button">
+        <button
+          :disabled="isLoading"
+          type="submit"
+          class="form-popup__button button">
           {{ $t('header.sign_in') }}
         </button>
       </Form>
@@ -118,7 +121,10 @@
         </div>
         <ErrorMessage name="two_auth_code" class="error-alert" />
       </div>
-      <button type="submit" class="form-popup__button button">
+      <button
+        :disabled="isLoading"
+        type="submit"
+        class="form-popup__button button">
         {{ $t('header.sign_in') }}
       </button>
     </Form>
@@ -194,7 +200,11 @@ export default {
           }
         } else {
           this.resetLoginForm();
-          this.showDanger(this.$t('common.alert.error'));
+          this.showDanger(
+            this.$t(
+              `common.alert.${this.validationErrors.response.data.detail}`
+            )
+          );
         }
       });
     },
@@ -205,12 +215,17 @@ export default {
           this.showSuccess(this.$t('common.alert.success'));
         } else {
           this.resetTwoAuthForm();
-          this.showDanger(this.$t('common.alert.error'));
+          this.showDanger(
+            this.$t(
+              `common.alert.${this.validationErrors.response.data.detail}`
+            )
+          );
         }
       });
     },
     resetForm() {
       this.twoAuth ? this.resetTwoAuthForm() : this.resetLoginForm();
+      this.twoAuth = false;
     },
     resetLoginForm() {
       this.$refs.loginForm.resetForm();

@@ -25,6 +25,7 @@ export const accountChangeEmailStore = {
         commit('setLoading', true);
         const response = await accountApi.changeEmail(params);
         commit('setData', response.data);
+        commit('setError', null);
         return response;
       } catch (e) {
         commit('setError', e.message);

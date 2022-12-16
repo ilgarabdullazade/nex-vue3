@@ -22,6 +22,7 @@ export const accountVerificationStore = {
     async sendVerificationCode({ commit }) {
       try {
         commit('setLoading', true);
+        commit('setError', null);
         return await accountApi.sendVerificationCode();
       } catch (e) {
         commit('setError', e.message);
@@ -32,6 +33,7 @@ export const accountVerificationStore = {
     async activateAccount({ commit }, code) {
       try {
         commit('setLoading', true);
+        commit('setError', null);
         return await accountApi.activateAccount(code);
       } catch (e) {
         commit('setError', e.message);

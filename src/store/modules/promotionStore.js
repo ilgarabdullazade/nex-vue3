@@ -25,6 +25,7 @@ export const promotionStore = {
         commit('setLoading', true);
         const response = await promotionApi.getPromotionList();
         commit('setData', response.data);
+        commit('setError', null);
         return response;
       } catch (e) {
         commit('setError', e.message);

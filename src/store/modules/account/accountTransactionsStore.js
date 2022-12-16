@@ -32,6 +32,7 @@ export const accountTransactionsStore = {
         commit('setLoading', true);
         const response = await dispatch('getUserTransactions', page);
         commit('setData', response.data);
+        commit('setError', null);
         return response;
       } catch (e) {
         commit('setError', e.message);

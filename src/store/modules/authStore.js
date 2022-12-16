@@ -118,7 +118,7 @@ export const authStore = {
       try {
         commit('setLoading', true);
         const response = await authApi.loginWithTwoAuthCode(credentials);
-        dispatch('actionsAfterLogin');
+        dispatch('actionsAfterLogin', response);
         return response;
       } catch (res) {
         commit('setValidationErrors', res);

@@ -12,7 +12,7 @@
       <Form
         @submit="onSubmit"
         :validation-schema="validationSchema"
-        ref="exhangeForm">
+        ref="exchangeForm">
         <div class="exchange__form-exchange form-exchange">
           <div class="form-exchange__header header-form-exchange">
             <span class="header-form-exchange__rate"
@@ -64,16 +64,6 @@
                 >
               </div>
             </div>
-            <template v-if="activePair.currency_left.fiat">
-              <Field
-                name="credit_card"
-                type="text"
-                :placeholder="$t('main.form.enter_card_number')"
-                class="input"
-                v-maska="'#### #### #### ####'" />
-
-              <ErrorMessage name="credit_card" class="error-alert" />
-            </template>
           </div>
 
           <div class="form-exchange__item">
@@ -208,7 +198,9 @@ export default {
           this.activePair.min_value * 1.05,
           6
         )}|max_value:${roundUp(this.activePair.max_value * 0.95, 6)}`,
-        credit_card: 'required|credit_card',
+        credit_card: !this.activePair.currency_left.fiat
+          ? 'required|credit_card'
+          : null,
         crypto_wallet: this.activePair.currency_left.fiat
           ? 'required|min:16'
           : null,
@@ -236,9 +228,6 @@ export default {
       this.setFormData({
         amount_exchange: values.sum,
         amount_receipt: this.amountRight,
-        from_account: this.activePair.fiat_to_crypto
-          ? values.credit_card
-          : values.crypto_wallet,
         to_account: this.activePair.fiat_to_crypto
           ? values.crypto_wallet
           : values.credit_card,
@@ -295,6 +284,7 @@ export default {
       const temporaryCurrency = this.currencyLeft;
       this.setCurrencyLeft(this.currencyRight);
       this.setCurrencyRight(temporaryCurrency);
+      if (this.$refs.exchangeForm) this.$refs.exchangeForm.setErrors({});
     },
   },
   mounted() {

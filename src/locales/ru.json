@@ -16,7 +16,12 @@
       "change_success": "{name} успешно изменен",
       "send_success": "{name} успешно отправлен",
       "error": "Что-то пошло не так",
-      "account_activated": "Аккаунт успешно подтвержден"
+      "account_activated": "Аккаунт успешно подтвержден",
+      "login_error_incorrect_data": "Введен неверный логин или пароль",
+      "reg_login_exist_error": "Пользователь с таким логином уже существует",
+      "reg_email_exist_error": "Пользователь с таким 'E-mail'-ом уже существует",
+      "not_valid_code": "Неверный код",
+      "not_user": "Пользователь с таким 'E-mail'-ом не найден"
     }
   },
   "header": {

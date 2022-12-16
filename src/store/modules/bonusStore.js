@@ -24,6 +24,7 @@ export const bonusStore = {
         commit('setLoading', true);
         const response = await bonusApi.getBonusCalculate(params);
         commit('setData', response.data);
+        commit('setError', null);
         return response;
       } catch (e) {
         commit('setError', e.message);

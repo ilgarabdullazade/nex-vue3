@@ -3,7 +3,7 @@
     "loading": "Завантаження...",
     "empty_list": "Тут немає {name}... поки",
     "articles": "статей",
-    "операції": "операції",
+    "operations": "операції",
     "promotions": "акцій",
     "tags": "тегів",
     "reviews": "відгуків",
@@ -16,7 +16,12 @@
       "change_success": "{name} успішно змінено",
       "send_success": "{name} успішно відправлено",
       "error": "Щось пішло не так",
-      "account_activated": "Акаунт успішно підтверджено"
+      "account_activated": "Акаунт успішно підтверджено",
+      "login_error_incorrect_data": "Введено невірний логін або пароль",
+      "reg_login_exist_error": "Користувач з таким логіном вже існує",
+      "reg_email_exist_error": "Користувач з таким 'E-mail'-ом вже існує",
+      "not_valid_code": "Невірний код",
+      "not_user": "Пользователь з таким 'E-mail'-ом не знайдений"
     }
   },
   "header": {
