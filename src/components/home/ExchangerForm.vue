@@ -126,7 +126,7 @@
             <li v-if="blockchainCommission" class="exchange__item">
               {{ $t('main.blockchain_fee') }}
               {{ blockchainCommission }}
-              {{ selectedRealCurrency.name_from_white_bit }}
+              USDT
             </li>
           </ul>
         </div>
