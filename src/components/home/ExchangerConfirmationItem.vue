@@ -72,4 +72,10 @@ export default {
 .item-data-confirmation__detail {
   word-break: break-all;
 }
+.transfer {
+  margin-right: 30px;
+}
+.method {
+  max-width: 210px;
+}
 </style>

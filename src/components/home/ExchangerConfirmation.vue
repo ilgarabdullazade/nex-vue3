@@ -34,7 +34,10 @@
         :currency="activePair.currency_right"
         :amount="formData.amount_receipt"
         :account="formData.to_account" />
-      <Form @submit="onSubmit" :validation-schema="validationSchema">
+      <Form
+        @submit="onSubmit"
+        :validation-schema="validationSchema"
+        v-slot="{ meta }">
         <div class="form-data-confirmation__content">
           <h5 class="form-data-confirmation__caption caption">
             {{ $t('main.personal_data') }}
@@ -86,6 +89,7 @@
             {{ $t('main.back') }}
           </button>
           <button
+            :disabled="!meta.valid"
             type="submit"
             class="form-data-confirmation__second-button button button_none">
             {{ $t('main.pay') }}

@@ -4,6 +4,7 @@
     v-slot="{ close }"
     v-model="showModal"
     @closed="resetForm()"
+    :click-to-close="false"
     :esc-to-close="true"
     :z-index-base="100">
     <div class="popup-login__header">

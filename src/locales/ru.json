@@ -93,7 +93,7 @@
     "confirm": "Подтвердить"
   },
   "account": {
-    "get_link": "Получить ссылку",
+    "get_link": "Отправить ссылку на E-mail",
     "not_confirmed": "Аккаунт не подтвержден",
     "operations_history": {
       "title": "История операций",

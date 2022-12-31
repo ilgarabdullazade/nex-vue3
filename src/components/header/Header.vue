@@ -237,6 +237,7 @@ export default {
 
 .logo__text,
 .logo__light {
-  height: 20px;
+  height: 20px !important;
+  width: auto;
 }
 </style>

@@ -4,6 +4,7 @@
     v-slot="{ close }"
     v-model="showModal"
     @closed="resetAll"
+    :click-to-close="false"
     :esc-to-close="true"
     :z-index-base="100">
     <div class="popup-login__header">
@@ -252,4 +253,20 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.notification-popup {
+  top: -120px;
+}
+.notification-popup__image {
+  padding-right: 0;
+}
+
+@media (max-width: 52.125em) {
+  .notification-popup__image {
+    padding-right: 0;
+  }
+  .notification-popup {
+    top: -170px;
+  }
+}
+</style>

@@ -94,7 +94,7 @@
   },
   "account": {
     "not_confirmed": "Account not confirmed",
-    "get_link": "Get the link",
+    "get_link": "Send link to E-mail",
     "operations_history": {
       "title": "Operations history",
       "caption": "Keep track of your transactions and keep records conveniently",
@@ -156,7 +156,7 @@
     }
   },
   "main": {
-    "title": "Cryptui. Cryptui from here",
+    "title": "In crypto we trust",
     "caption": "Purchase and sale of cryptocurrency",
     "give": "Give",
     "getting": "Get",

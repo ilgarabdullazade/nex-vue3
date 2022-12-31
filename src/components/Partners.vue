@@ -1,10 +1,10 @@
 <template>
   <div class="partners">
-    <div class="partners__inner">
+    <!--<div class="partners__inner">
       <img src="@/assets/img/mastercard.svg" alt="image" />
       <img src="@/assets/img/logo.svg" alt="logo" />
       <img src="@/assets/img/visa-logo.svg" alt="image" />
-    </div>
+    </div>-->
   </div>
 </template>
 
@@ -14,4 +14,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.partners__inner {
+  column-gap: 24px;
+}
+</style>
