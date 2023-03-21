@@ -132,6 +132,7 @@
             </template>
 
             <nex-empty-component
+              key="empty"
               v-else
               :message="
                 $t('common.empty_list', { name: $t('common.articles') })
@@ -175,7 +176,7 @@ export default {
           },
         });
       } catch (e) {
-        this.error = e;
+        this.error = e.message;
       } finally {
         this.isLoading = false;
       }
@@ -183,7 +184,7 @@ export default {
   },
   mounted() {
     this.fetchPosts().then((res) => {
-      this.posts = res.data.results;
+      if (res) this.posts = res.data.results;
     });
   },
 };

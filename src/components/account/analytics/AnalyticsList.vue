@@ -15,6 +15,7 @@
             :key="operation.transaction_date" />
         </template>
         <nex-empty-component
+          key="error"
           v-else
           :message="
             $t('common.empty_list', { name: $t('common.operations') })

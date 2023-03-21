@@ -18,6 +18,7 @@
           </div>
         </template>
         <nex-empty-component
+          key="empty"
           v-else
           :message="$t('common.empty_list', { name: $t('common.articles') })" />
       </div>

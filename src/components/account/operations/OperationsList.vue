@@ -17,6 +17,7 @@
           class="lastest-operations__item" />
       </ul>
       <nex-empty-component
+        key="empty"
         v-else
         :message="$t('common.empty_list', { name: $t('common.operations') })" />
 
