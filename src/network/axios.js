@@ -3,7 +3,7 @@ import { getItem } from '@/helpers/persistanceStorage';
 import { AuthJWT } from '@/helpers/authJWT';
 import store from '@/store';
 
-axios.defaults.baseURL = 'https://exchangenex.com/';
+axios.defaults.baseURL = 'https://nexexchange.io/';
 
 axios.interceptors.request.use((config) => {
   const accessToken = getItem('accessToken');
